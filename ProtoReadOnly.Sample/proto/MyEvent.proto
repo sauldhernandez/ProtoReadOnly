@@ -1,0 +1,22 @@
+﻿syntax = "proto3";
+
+package org.sample;
+
+message MyEvent {
+    string id = 1;
+    string something = 2;
+    Inner inner = 3;
+}
+
+message Inner {
+    int32 value = 1;
+    repeated int32 repeats = 2;
+    map<string, OneOfs> maps = 3;
+}
+
+message OneOfs {
+    oneof test {
+        string first = 1;
+        int32 second = 2;
+    }
+}
