@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis;
 
-namespace ProtobufExtensionGenerator
+namespace ProtoReadOnly.Generator
 {
     internal record Property(TypeData Type, string Name);
     internal record TypeData(string Name, MapTypeData? MapTypeData);
