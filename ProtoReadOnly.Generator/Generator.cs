@@ -84,13 +84,18 @@ namespace ProtobufExtensionGenerator
 
                 var content = @$"
 using System;
+
 namespace {nsName} {{
-    public interface IReadOnly{name} {{
+    public interface IReadOnly{name}: ProtoReadOnly.IReadOnlyMessage {{
         {properties.Select(p => $"{p.Type.Name} {p.Name} {{ get; }}").Aggregate("", (prod, next) => $"{prod}\n{next}")}
     }}
 
     public partial class {name} : IReadOnly{name} {{
         {properties.Select(p => $"{p.Type.Name} IReadOnly{name}.{p.Name} => {(p.Type.MapTypeData != null ? $"new ProtoReadOnly.ReadOnlyWrapper<{p.Type.MapTypeData.MapKeyType},{p.Type.MapTypeData.MapValueOriginalType},{p.Type.MapTypeData.MapValueReadOnlyType}>({p.Name})" : p.Name)};").Aggregate("", (prod, next) => $"{prod}\n{next}")}
+
+        public byte[] ToByteArray() {{
+            return Google.Protobuf.MessageExtensions.ToByteArray(this);
+        }}
     }}
 }}
 ";

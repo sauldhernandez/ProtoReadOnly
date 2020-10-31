@@ -2,7 +2,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+        <Version>0.1.0-beta</Version>
         <Nullable>enable</Nullable>
+        <PackageId>ProtoReadOnly</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/sauldhernandez/ProtoReadOnly</PackageProjectUrl>
+        <Authors>sauldhernandez</Authors>
+        <Description>Support library for ProtoReadOnly.Generator</Description>
+        <RepositoryUrl>git@github.com:sauldhernandez/ProtoReadOnly.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Google.Protobuf" Version="3.13.0" />
